@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commandSchema>
+	<tokens>
+		<token value="a">
+			<response value=""/>
+			<failure value=""/>
+			<foreign/>
+		</token>
+	</tokens>
+</commandSchema>

@@ -1,0 +1,20 @@
+
+
+commandSchema
+	Elements:
+		failure: [0..1] If it is not specified then by default a failure element that will return the value 'null' will be used.
+		nullToken: [0..1] If it is not specified then by default a nullToken element that will return the value 'null' will be used.
+		
+		
+token
+	Elements:
+		failure: [0..1] No default element will be added, if something fails it will look at the parent for a failure element (until it reaches <commandSchema>, where it will always find something).  
+
+
+failure - this element will deal with the cases where some error occurred while parsing the command.
+	Attributes
+		value: [0..1] The value that will be returned. If it is not specified then the returned value will be 'null'.
+		
+nullToken - this element will deal with the cases when the command sent is 'null'.
+	Attributes
+		value: [1..1] The value that will be returned.

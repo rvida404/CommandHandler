@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commandSchema>
+	<tokens>
+		<token value="a">
+			<actions>
+				<action name="a" storeIn="asd" param="param" paramSeparator="separator" responseOnError="errorResponse"/>
+				<action name="w" storeIn="asd" param="param" paramSeparator="separator" />
+			</actions>
+		</token>
+	</tokens>
+</commandSchema>

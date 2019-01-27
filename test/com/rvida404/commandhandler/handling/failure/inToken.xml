@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commandSchema>
+	<tokens>
+		<token value="1">
+			<tokens>
+				<token value="1">
+					<tokens>
+						<token value="2">
+							<response value="response 1,1,2" />
+						</token>
+					</tokens>
+					<failure value="failure 1,1" />
+				</token>
+			</tokens>
+		</token>
+		<token value="2">
+			<tokens>
+				<token value="1">
+					<failure />
+				</token>
+			</tokens>
+		</token>
+		<token value="3">
+			<tokens>
+				<token value="1">
+				</token>
+			</tokens>
+		</token>
+	</tokens>
+</commandSchema>

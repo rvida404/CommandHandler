@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commandSchema>
+	<tokens>
+		<token value="1">
+			<tokens>
+				<token value="1">
+					<tokens>
+						<token value="2">
+						</token>
+					</tokens>
+					<response value="response 1,1 '{$command}'" />
+				</token>
+			</tokens>
+		</token>
+
+		<token value="2">
+			<tokens>
+				<token value="1">
+					<tokens>
+						<token value="">
+							<response value="response 2,1, '{$token@1}'" />
+						</token>
+					</tokens>
+					<response value="response 2,1, '{$token@5}'" />
+				</token>
+			</tokens>
+		</token>
+
+		<token value="3">
+			<tokens>
+				<token value="1">
+					<response value="response '{$command}' {$token@1}-{$token@0}" />
+				</token>
+			</tokens>
+		</token>
+	</tokens>
+	<nullToken value="nullToken '{$command}'" />
+	<failure value="failure global '{$command}'" />
+</commandSchema>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commandSchema>
+	<tokens>
+		<token value="a" foreign="value">
+		</token>
+	</tokens>
+</commandSchema>

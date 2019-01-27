@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<!-- The nullToken element is used when a null command is given -->
+	<xs:complexType name="nullToken">
+		<xs:attribute name="value" type="xs:string" use="required"></xs:attribute>
+	</xs:complexType>
+
+	<!-- The failure element is used to handle errors that rise when handling a command -->
+	<xs:complexType name="failure">
+		<xs:attribute name="value" type="xs:string"></xs:attribute>
+	</xs:complexType>
+
+	<!-- The response element is used to handle a matched command -->
+	<xs:complexType name="response">
+		<xs:attribute name="value" type="xs:string"></xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="action">
+		<xs:attribute name="storeIn" type="xs:string"></xs:attribute>
+		<xs:attribute name="name" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="param" type="xs:string"></xs:attribute>
+		<xs:attribute name="paramSeparator" type="xs:string"></xs:attribute>
+		<xs:attribute name="responseOnError" type="xs:string"></xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="actions">
+		<xs:sequence maxOccurs="unbounded" minOccurs="1">
+			<xs:element name="action" type="action"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="token">
+		<xs:sequence>
+			<xs:element name="actions" type="actions" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="tokens" type="tokens" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="response" type="response" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="failure" type="failure" maxOccurs="1" minOccurs="0"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="value" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="regexp" type="xs:boolean" use="optional"></xs:attribute>
+	</xs:complexType>
+
+
+	<xs:complexType name="tokens">
+		<xs:sequence maxOccurs="unbounded" minOccurs="1">
+			<xs:element name="token" type="token"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="commandSchema">
+		<xs:sequence>
+			<xs:element name="tokens" type="tokens" minOccurs="1"></xs:element>
+			<xs:element name="nullToken" type="nullToken" minOccurs="0"></xs:element>
+			<xs:element name="failure" type="failure" minOccurs="0"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="separator" type="xs:string"></xs:attribute>
+		<xs:attribute name="placeholderBegin" type="xs:string"></xs:attribute>
+		<xs:attribute name="placeholderEnd" type="xs:string"></xs:attribute>
+		<xs:attribute name="failOnNoResponse" type="xs:boolean"></xs:attribute>
+
+	</xs:complexType>
+
+	<xs:element name="commandSchema" type="commandSchema"></xs:element>
+</xs:schema>

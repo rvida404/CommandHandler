@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commandSchema>
+	<tokens>
+		<token value="1">
+			<tokens>
+				<token value="2">
+					<tokens>
+						<token value="3">
+							<tokens>
+								<token value="4">
+									<tokens>
+										<token value="5">
+										</token>
+									</tokens>
+									<failure value="failure 1,2,3,4" />
+								</token>
+							</tokens>
+						</token>
+					</tokens>
+					<failure value="failure 1,2" />
+				</token>
+			</tokens>
+		</token>
+	</tokens>
+	<failure value="failure global" />
+
+
+</commandSchema>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commandSchema separator=";" placeholderBegin="&lt;" placeholderEnd="&gt;" failOnNoResponse="false">
+	<tokens>
+		<token value="a" />
+	</tokens>
+	<nullToken value="a" />
+	<failure value="a" />
+</commandSchema>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commandSchema>
+	<tokens>
+		<token value="a" regexp="true">
+			<actions>
+				<action name=""></action>
+			</actions>
+			<tokens>
+				<token value="b" />
+			</tokens>
+			<response value="r" />
+			<failure value="f" />
+		</token>
+		<token value="b" />
+	</tokens>
+</commandSchema>

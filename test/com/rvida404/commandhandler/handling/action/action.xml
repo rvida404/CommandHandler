@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commandSchema>
+	<tokens>
+
+		<token value="1">
+			<actions>
+				<action name="testCall" />
+			</actions>
+		</token>
+
+		<token value="2">
+			<tokens>
+				<token value="1">
+					<actions>
+						<action name="testCallWithParam" param='{$command}' />
+					</actions>
+				</token>
+				<token value="2">
+					<actions>
+						<action name="testCallWithParam" param='{$command},{$token@0},test' />
+					</actions>
+				</token>
+				<token value="3">
+					<actions>
+						<action name="testCallWithParam" paramSeparator=";" param='{$command};{$token@1};test' />
+					</actions>
+				</token>
+				<token value="4">
+					<actions>
+						<action name="testCallWithParam" param='{$command};{$token@1}' />
+					</actions>
+				</token>
+			</tokens>
+		</token>
+
+		<token value="3">
+			<actions>
+				<action storeIn="actionResponse"
+					name="testCallWithParamAndReturn" param='{$token@0}' />
+			</actions>
+			<response
+				value="Got '{$actionResponse}' from action'testCallWithParamAndReturn" />
+		</token>
+
+		<token value="4">
+			<actions>
+				<action storeIn="action1Response"
+					name="testCallWithParamAndReturn" param='{$token@0}' />
+				<action storeIn="action2Response"
+					name="testCallWithParamAndReturn" param='{$action1Response}' />
+			</actions>
+			<response
+				value="Got '{$action1Response}' then '{$action2Response}' from action'testCallWithParamAndReturn" />
+		</token>
+
+		<token value="5">
+			<actions>
+				<action storeIn="action1Response" name="testCall1" />
+			</actions>
+			<tokens>
+				<token value="1">
+					<actions>
+						<action storeIn="action2Response" name="testCall2"
+							param="{$action1Response},{$command}" />
+					</actions>
+					<response
+						value="Got '{$action1Response}' then '{$action2Response}'" />
+				</token>
+
+			</tokens>
+		</token>
+	</tokens>
+
+	<nullToken value="Null input" />
+	<failure value="Top failure fired" />
+</commandSchema>

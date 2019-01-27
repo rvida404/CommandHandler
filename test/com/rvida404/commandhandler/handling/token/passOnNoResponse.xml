@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commandSchema>
+	<tokens>
+		<token value="1">
+			<tokens>
+				<token value="1">
+					<response value="response 1,1" />
+				</token>
+			</tokens>
+			<response />
+		</token>
+	</tokens>
+	<failure value="failure global" />
+</commandSchema>

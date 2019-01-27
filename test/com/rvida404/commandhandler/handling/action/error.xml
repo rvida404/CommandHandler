@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commandSchema>
+	<tokens>
+
+		<token value="1">
+			<actions>
+				<action name="nonExisting" />
+			</actions>
+		</token>
+
+		<token value="2">
+			<actions>
+				<action name="testCall1" />
+			</actions>
+			<tokens>
+				<token value="1">
+					<actions>
+						<action name="testCall2" />
+					</actions>
+					<failure value="failure 2,1" />
+				</token>
+			</tokens>
+		</token>
+
+		<token value="3">
+			<actions>
+				<action name="testCall1" />
+			</actions>
+			<tokens>
+				<token value="1">
+					<actions>
+						<action name="testCall2" responseOnError="Error '{$command}'" />
+					</actions>
+					<failure value="failure 2,1" />
+				</token>
+			</tokens>
+		</token>
+
+	</tokens>
+	<failure value="failure global" />
+</commandSchema>
